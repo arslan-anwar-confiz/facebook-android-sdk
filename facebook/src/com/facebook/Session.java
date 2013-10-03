@@ -963,6 +963,8 @@ public class Session implements Serializable {
 
             switch (this.state) {
                 case CREATED:
+		case CLOSED_LOGIN_FAILED:
+		case CLOSED:
                     this.state = newState = SessionState.OPENING;
                     if (openRequest == null) {
                         throw new IllegalArgumentException("openRequest cannot be null when opening a new Session");
